@@ -1,7 +1,11 @@
+import Header from "./Header";
+import MainContent from "./MainContent";
+
 function App() {
   return (
     <>
-      what?
+      <Header />
+      <MainContent />
     </>
   );
 }

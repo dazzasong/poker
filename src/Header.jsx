@@ -6,6 +6,7 @@ export default function Header() {
     <Stack
       bgcolor="gold"
       height={80}
+      borderBottom="goldenrod 4px solid"
       direction="row"
       justifyContent="space-evenly"
       alignContent="center"

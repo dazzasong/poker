@@ -3,10 +3,10 @@ import { Stack, Typography } from "@mui/material";
 
 export default function MainContent() {
   const [introEndState, setIntroEndState] = React.useState(0);
-  const introEndColor = introEndState === 1 ? "red" : "lightgreen";
+  const introEndColor = introEndState === 1 ? "error" : "success";
   return (
     <Stack bgcolor="black" alignItems="center">
-      <Stack direction="row">
+      <Stack direction="row" sx={{userSelect: "none"}}>
         <Typography
           color="white"
           fontSize={30}

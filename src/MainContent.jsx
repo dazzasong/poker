@@ -1,32 +1,57 @@
 import React from "react";
-import { Stack, Typography } from "@mui/material";
+import { Box, Button, Slider, Stack, Typography } from "@mui/material";
+import WalletIcon from '@mui/icons-material/Wallet';
+import PriceCheckIcon from '@mui/icons-material/PriceCheck';
+import kaching from './assets/audio/kaching.mp3';
+
+const kachingSfx = new Audio(kaching);
 
 export default function MainContent() {
-  const [introEndState, setIntroEndState] = React.useState(0);
-  const introEndColor = introEndState === 1 ? "error" : "success";
+  const [gameState, setGameState] = React.useState(0);
+  const [balance, setBalance] = React.useState(25);
+  const [bet, setBet] = React.useState(0);
+  if (gameState === 1) {
+    // do something
+  } else if (gameState === 2 ) {
+    // do something
+  }
+  function confirmBet() {
+    setBet(100);
+    kachingSfx.play()
+  }
   return (
-    <Stack bgcolor="black" alignItems="center">
-      <Stack direction="row" sx={{userSelect: "none"}}>
-        <Typography
-          color="white"
-          fontSize={30}
-          fontWeight="bold"
-        >
-          Ready to..&nbsp;
+    <Box>
+      <Stack direction='row' spacing={0.5}>
+        <WalletIcon fontSize="large" />
+        <Typography fontSize={24} sx={{ userSelect: 'none' }}>
+          ${balance}K
         </Typography>
-        <div
-          onMouseEnter={() => setIntroEndState(1)}
-          onMouseLeave={() => setIntroEndState(0)}
-        >
-          <Typography
-            color={introEndColor}
-            fontSize={30}
-            fontWeight="bold"
-          >
-            {introEndState === 1 ? "LOSE" : "WIN"}?
-          </Typography>
-        </div>
       </Stack>
-    </Stack>
+      <Stack alignItems='center'>
+        <Typography fontSize={20} fontWeight='bold'>
+          Welcome to the poker table! Grab a seat and place your bets!
+        </Typography>
+        <Stack direction='row' width={200}>
+          <Slider
+            valueLabelDisplay="auto"
+            min={10}
+            step={10}
+          />
+          <Button variant="contained" color="success" onClick={confirmBet}>BET</Button>
+          { bet &&
+            <PriceCheckIcon color="success" />
+          }
+        </Stack>
+        <Typography
+          color='gold'
+          fontSize={25}
+          fontWeight='bold'
+          sx={{ textShadow: '2px 2px goldenrod' }}
+        >
+          Ready to PLAY?
+        </Typography>
+        <Button variant="contained" color="warning" onClick={() => setGameState(1)}>Yes</Button>
+      </Stack>
+    </Box>
   )
 }

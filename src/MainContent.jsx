@@ -2,12 +2,14 @@ import React from "react";
 import { Box, Button, Slider, Stack, Typography } from "@mui/material";
 import WalletIcon from '@mui/icons-material/Wallet';
 import PriceCheckIcon from '@mui/icons-material/PriceCheck';
-import door from './assets/audio/door.mp3';
 import kaching from './assets/audio/kaching.mp3';
+import door from './assets/audio/door.mp3';
+import noCash from './assets/audio/no-cash.mp3';
 import Game from "./Game";
 
-const doorSfx = new Audio(door);
 const kachingSfx = new Audio(kaching);
+const doorOpenSfx = new Audio(door);
+const insufficientBalanceSfx = new Audio(noCash);
 
 export default function MainContent() {
   const [gameState, setGameState] = React.useState(0);
@@ -25,9 +27,9 @@ export default function MainContent() {
 
   React.useEffect(() => {
     if (gameState === 1) {
-      doorSfx.play();
+      doorOpenSfx.play();
     } else if (gameState === 2) {
-      //do
+      // do something
     } else {
       setBet(0);
     }
@@ -36,6 +38,7 @@ export default function MainContent() {
   const handleChange = (event, newValue) => setBValue(newValue);
   const confirmBet = () => {
     if (bValueStatus === 'red') {
+      insufficientBalanceSfx.play();
       window.alert('Not enough balance!');
     } else {
       setBet(bValue);

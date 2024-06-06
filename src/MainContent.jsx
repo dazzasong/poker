@@ -15,11 +15,11 @@ export default function MainContent() {
   const [gameState, setGameState] = React.useState(0);
   const [balance, setBalance] = React.useState(25);
   const [bValue, setBValue] = React.useState(5);
-  const [bet, setBet] = React.useState(0);
+  const [budget, setBudget] = React.useState(0);
   
-  let bValueStatus = 'green';
+  let bValueStatus;
   
-  if (!bet) {
+  if (!budget) {
     if (balance < bValue) bValueStatus = 'red';
     else if (balance === bValue) bValueStatus = 'orange';
     else bValueStatus = 'green';
@@ -29,9 +29,9 @@ export default function MainContent() {
     if (gameState === 1) {
       doorOpenSfx.play();
     } else if (gameState === 2) {
-      // do something
+      // sds
     } else {
-      setBet(0);
+      setBudget(0);
     }
   }, [gameState]);
 
@@ -39,9 +39,9 @@ export default function MainContent() {
   const confirmBet = () => {
     if (bValueStatus === 'red') {
       insufficientBalanceSfx.play();
-      window.alert('Not enough balance!');
+      window.alert("Not enough cash, stranger.")
     } else {
-      setBet(bValue);
+      setBudget(bValue);
       setBalance(balance - bValue);
       kachingSfx.play();
     }
@@ -66,7 +66,7 @@ export default function MainContent() {
                 color="success"
                 min={5}
                 step={5}
-                disabled={bet}
+                disabled={budget}
                 onChange={handleChange}
               />
             </Box>
@@ -76,26 +76,32 @@ export default function MainContent() {
             <Button
               variant="contained"
               color="success"
-              disabled={bet}
+              disabled={budget}
               onClick={confirmBet}
             >
-              Bet
+              Take
             </Button>
-            { bet > 0 &&
+            { budget > 0 &&
               <PriceCheckIcon color="success" />
             }
           </Stack>
-        { bet > 0 &&
+        { budget > 0 &&
           <Stack justifyContent='center' alignItems='center' height={400}>
             <Typography
-                color='gold'
-                fontSize={25}
-                fontWeight='bold'
-                sx={{ textShadow: '2px 2px goldenrod' }}
-              >
-                Ready to PLAY?
-              </Typography>
-              <Button variant="contained" color="warning" onClick={() => setGameState(1)}>Yes</Button>
+              color='gold'
+              fontSize={25}
+              fontWeight='bold'
+              sx={{ textShadow: '2px 2px goldenrod' }}
+            >
+              Ready to PLAY?
+            </Typography>
+            <Button
+              variant="contained"
+              color="warning"
+              onClick={() => setGameState(1)}
+            >
+              Yes
+            </Button>
           </Stack>
         }
         </Stack>

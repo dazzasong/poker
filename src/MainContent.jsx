@@ -4,6 +4,7 @@ import WalletIcon from '@mui/icons-material/Wallet';
 import PriceCheckIcon from '@mui/icons-material/PriceCheck';
 import chair from './assets/audio/chair.mp3';
 import kaching from './assets/audio/kaching.mp3';
+import Game from "./Game";
 
 const chairSfx = new Audio(chair);
 const kachingSfx = new Audio(kaching);
@@ -95,6 +96,9 @@ export default function MainContent() {
           </Stack>
         }
         </Stack>
+      }
+      { gameState === 1 &&
+        <Game />
       }
     </Box>
   )

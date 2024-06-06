@@ -35,7 +35,7 @@ export default function MainContent() {
 
   const handleChange = (event, newValue) => setBValue(newValue);
   const confirmBet = () => {
-    if (balance < bValue) {
+    if (bValueStatus === 'red') {
       window.alert('Not enough balance!');
     } else {
       setBet(bValue);

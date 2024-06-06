@@ -2,11 +2,11 @@ import React from "react";
 import { Box, Button, Slider, Stack, Typography } from "@mui/material";
 import WalletIcon from '@mui/icons-material/Wallet';
 import PriceCheckIcon from '@mui/icons-material/PriceCheck';
-import chair from './assets/audio/chair.mp3';
+import door from './assets/audio/door.mp3';
 import kaching from './assets/audio/kaching.mp3';
 import Game from "./Game";
 
-const chairSfx = new Audio(chair);
+const doorSfx = new Audio(door);
 const kachingSfx = new Audio(kaching);
 
 export default function MainContent() {
@@ -25,7 +25,7 @@ export default function MainContent() {
 
   React.useEffect(() => {
     if (gameState === 1) {
-      chairSfx.play();
+      doorSfx.play();
     } else if (gameState === 2) {
       //do
     } else {

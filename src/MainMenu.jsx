@@ -87,21 +87,25 @@ export default function MainMenu() {
           </Stack>
         { budget > 0 &&
           <Stack justifyContent='center' alignItems='center' height={400}>
-            <Typography
-              color='gold'
-              fontSize={25}
-              fontWeight='bold'
-              sx={{ textShadow: '2px 2px goldenrod' }}
-            >
-              Ready to PLAY?
-            </Typography>
-            <Button
-              variant="contained"
-              color="warning"
-              onClick={() => setGameState(1)}
-            >
-              Yes
-            </Button>
+            <motion.div animate={{ y: -10 }}>
+              <Typography
+                color='gold'
+                fontSize={25}
+                fontWeight='bold'
+                sx={{ textShadow: '2px 2px goldenrod' }}
+              >
+                Ready to PLAY?
+              </Typography>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.2 }}>
+              <Button
+                variant="contained"
+                color="warning"
+                onClick={() => setGameState(1)}
+              >
+                Yes
+              </Button>
+            </motion.div>
           </Stack>
         }
         </Stack>

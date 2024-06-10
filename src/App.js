@@ -1,9 +1,9 @@
-import MainContent from "./MainContent";
+import MainMenu from "./MainMenu";
 
 function App() {
   return (
     <>
-      <MainContent />
+      <MainMenu />
     </>
   );
 }

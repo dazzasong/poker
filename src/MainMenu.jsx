@@ -11,17 +11,16 @@ const kachingSfx = new Audio(kaching);
 const doorOpenSfx = new Audio(door);
 const insufficientBalanceSfx = new Audio(noCash);
 
-export default function MainContent() {
+export default function MainMenu() {
   const [gameState, setGameState] = React.useState(0);
   const [balance, setBalance] = React.useState(25);
   const [bValue, setBValue] = React.useState(5);
   const [budget, setBudget] = React.useState(0);
   
-  let bValueStatus;
+  let bValueStatus = 'green';
   
   if (!budget) {
     if (balance < bValue) bValueStatus = 'red';
-    else if (balance === bValue) bValueStatus = 'orange';
     else bValueStatus = 'green';
   }
 

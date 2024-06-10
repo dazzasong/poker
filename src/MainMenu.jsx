@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Button, Slider, Stack, Typography } from "@mui/material";
+import { motion } from "framer-motion"
 import WalletIcon from '@mui/icons-material/Wallet';
 import PriceCheckIcon from '@mui/icons-material/PriceCheck';
 import kaching from './assets/audio/kaching.mp3';

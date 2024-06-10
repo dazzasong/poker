@@ -57,9 +57,11 @@ export default function MainMenu() {
       </Stack>
       { gameState === 0 &&
         <Stack alignItems='center'>
-          <Typography fontSize={20}>
-            Welcome to the poker table! Grab a seat and place your bets!
-          </Typography>
+          <motion.div whileTap={{ rotate: 1 }}>
+            <Typography fontSize={20} sx={{ userSelect: 'none' }}>
+              Welcome to the poker table! Grab a seat and place your bets!
+            </Typography>
+          </motion.div>
           <Stack direction='row' spacing={2}>
             <Box width={200}>
               <Slider
@@ -70,7 +72,7 @@ export default function MainMenu() {
                 onChange={handleChange}
               />
             </Box>
-            <Typography color={bValueStatus} fontSize={20}>
+            <Typography color={bValueStatus} fontSize={20} sx={{ userSelect: 'none' }}>
               {bValue}K
             </Typography>
             <Button
@@ -92,7 +94,7 @@ export default function MainMenu() {
                 color='gold'
                 fontSize={25}
                 fontWeight='bold'
-                sx={{ textShadow: '2px 2px goldenrod' }}
+                sx={{ textShadow: '2px 2px goldenrod', userSelect: 'none' }}
               >
                 Ready to PLAY?
               </Typography>

@@ -51,9 +51,20 @@ export default function MainMenu() {
     <Box>
       <Stack direction='row' spacing={0.5}>
         <WalletIcon fontSize="large" />
-        <Typography fontSize={24} sx={{ userSelect: 'none' }}>
-          ${balance}K
-        </Typography>
+        <Box>
+          <Typography fontSize={24} sx={{ userSelect: 'none' }}>
+            ${balance}K
+          </Typography>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ y: budget ? 10 : 0, opacity: budget ? 0.5 : 0 }}
+            transition={{ duration: 0.4, from: -20 }}
+          >
+            <Typography fontSize={24} sx={{ userSelect: 'none' }}>
+              -${bValue}K
+            </Typography>
+          </motion.div>
+        </Box>
       </Stack>
       { gameState === 0 &&
         <Stack alignItems='center'>
@@ -91,7 +102,7 @@ export default function MainMenu() {
             }
           </Stack>
         { budget > 0 &&
-          <Stack justifyContent='center' alignItems='center' height={400}>
+          <Stack justifyContent='center' alignItems='center' height={300}>
             <motion.div animate={{ y: -10 }}>
               <Typography
                 color='gold'

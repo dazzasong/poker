@@ -58,8 +58,11 @@ export default function MainMenu() {
       { gameState === 0 &&
         <Stack alignItems='center'>
           <motion.div whileTap={{ rotate: 1 }}>
+            <Typography fontSize={20} fontWeight='bold' sx={{ userSelect: 'none' }}>
+              Welcome to the poker table!
+            </Typography>
             <Typography fontSize={20} sx={{ userSelect: 'none' }}>
-              Welcome to the poker table! Grab a seat and place your bets!
+              Choose how much to take with you.
             </Typography>
           </motion.div>
           <Stack direction='row' spacing={2}>

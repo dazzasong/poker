@@ -57,8 +57,8 @@ export default function MainMenu() {
           </Typography>
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ y: budget ? 10 : 0, opacity: budget ? 0.5 : 0 }}
-            transition={{ duration: 0.4, from: -20 }}
+            animate={{ y: budget ? 10 : 0, opacity: budget ? [0.5,0.5,0.5,0] : 0 }}
+            transition={{ duration: 0.6, from: -20 }}
           >
             <Typography fontSize={24} sx={{ userSelect: 'none' }}>
               -${bValue}K

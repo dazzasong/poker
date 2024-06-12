@@ -53,6 +53,8 @@ import hearts10 from './assets/images/10_of_hearts.png';
 import heartsJack from './assets/images/jack_of_hearts.png';
 import heartsQueen from './assets/images/queen_of_hearts.png';
 import heartsKing from './assets/images/king_of_hearts.png';
+import blackJoker from './assets/images/black_joker.png';
+import redJoker from './assets/images/red_joker.png';
 
 export default function Game() {
   return (
@@ -61,5 +63,5 @@ export default function Game() {
         Loading...
       </Typography>
     </Stack>
-  )
+  );
 }

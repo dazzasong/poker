@@ -9,6 +9,7 @@ const buttonClickSfx = new Audio(wiiConfirm);
 
 export default function JoinRoomPage() {
   const [roomID, setRoomID] = React.useState("");
+  const [receivedMessage, setReceivedMessage] = React.useState("");
   
   const sendMessage = (message) => {
     socket.emit("send_message", { message, roomID });
@@ -24,8 +25,7 @@ export default function JoinRoomPage() {
     if (roomID !== "") {
       socket.emit("join_room", roomID);
       setRoomID(roomID);
-      setInRoom(true);
-      joinRoomSfx.play();
+      buttonClickSfx.play();
     }
   };
 

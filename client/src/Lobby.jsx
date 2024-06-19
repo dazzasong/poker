@@ -31,7 +31,7 @@ export default function Lobby() {
   }
 
   return (
-    <Box>
+    <Box height="100vh">
 
     </Box>
   )

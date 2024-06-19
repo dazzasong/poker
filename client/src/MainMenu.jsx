@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import io from "socket.io-client";
 import WalletIcon from '@mui/icons-material/Wallet';
 import CreateRoomPage from "./CreateRoomPage";
+import JoinRoomPage from "./JoinRoomPage";
 
 const socket = io.connect("http://localhost:3001");
 
@@ -35,6 +36,9 @@ export default function MainMenu() {
       </Stack>
       { menuState === 1 &&
         <CreateRoomPage />
+      }
+      { menuState === 2 &&
+        <JoinRoomPage />
       }
     </Box>
   );
